@@ -77,6 +77,14 @@ public class UDParser
 		return result_type.matches("exact");
 	}
 	
+	/**
+	 * Return a String containing data in JSON format about a specified word.
+	 * Words inputted that contain spaces must be formatted in the following format:
+	 * "windows xp" -> "windows+xp"
+	 * 
+	 * @param word
+	 * @return a JSON-formatted String containing information on the word.
+	 */
 	public String getJSONData(String word)
 	{
 		 try 

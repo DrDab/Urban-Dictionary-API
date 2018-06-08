@@ -37,6 +37,12 @@ public class Definition
 		this.dislikes = dislikes;
 	}
 	
+	/**
+	 * Returns a CSV-formatted String containing the information of the definition in the following order:
+	 * Name, Definition, Example, Author, Date Written (ISO-8601), Definition ID#, # Likes, # Dislikes.
+	 * 
+	 * @return a comma-delimited String.
+	 */
 	@Override
 	public String toString()
 	{
