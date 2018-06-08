@@ -46,9 +46,6 @@ public class UDParser
 			  tmpArr.add(new Definition(wordName, definition, example, author, writtenDate, refID, likes, dislikes));
 		}
 		
-		// {"tags":[],"result_type":"no_results","list":[],"sounds":[]}
-		//{"definition":"The superior form of \"retarded\". It's the most destructive word you can ever use against another living soul. Saying this word to someone will cause them to either die of a heart attack or become so sad that they commit suicide.","permalink":"http://rarted.urbanup.com/12582916","thumbs_up":226,"author":"Bladethegamer","word":"Rarted","defid":12582916,"current_vote":"","written_on":"2018-02-21T00:00:00.000Z","example":"Random Person on the Internet: \"Oh boy a new comment on my Youtube video!\"\n\nEdgelord9000: \"You are rarted!\"\n\nRandom Person on the Internet: *dies of heart attack*","thumbs_down":16}
-		
 		return tmpArr.toArray(new Definition[tmpArr.size()]);
 	}
 	
