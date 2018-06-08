@@ -14,12 +14,19 @@ public class APITestDriver
 		Definition[] test = udparser.getDefinitionsByKeyword(JSONData);
 		for(int i = 0; i < test.length; i++)
 		{
+			System.out.println("WORD");
 			System.out.println(test[i].getWordName());
+			System.out.println("DEFINITION");
 			System.out.println(test[i].getDefinition());
+			System.out.println("AUTHOR");
+			System.out.println(test[i].getAuthor());
+			System.out.println("WRITTEN DATE");
 			System.out.println(test[i].getWrittenDate());
+			System.out.println("PERMALINK");
 			System.out.println(test[i].getPermalink());
 		}
 		JSONArray keywordTags = udparser.getTagsByKeyword(JSONData);
+		System.out.println("TAGS");
 		for(int i = 0; i < keywordTags.length(); i++)
 		{
 			System.out.println(keywordTags.get(i));
