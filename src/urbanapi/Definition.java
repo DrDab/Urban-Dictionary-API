@@ -46,7 +46,7 @@ public class Definition
 	@Override
 	public String toString()
 	{
-		return wordName + "," + definition + "," + example + "," + author + "," + writtenDate + "," + refID + "," + likes + "," + dislikes;
+		return "\"" + wordName + "\",\"" + definition + "\",\"" + example + "\",\"" + author + "\",\"" + writtenDate + "\"," + refID + "," + likes + "," + dislikes;
 	}
 	
 	/**
