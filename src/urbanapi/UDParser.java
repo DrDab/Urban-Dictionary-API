@@ -15,7 +15,7 @@ public class UDParser
 	
 	/**
 	 * Initialize a new instance of a UDParser object using the URL for the UrbanDictionary API page.
-	 * Examples for the API URL are "http://api.urbandictionary.com/v0/define?term=".
+	 * Examples for the API URL are "http://api.urbandictionary.com/v0/".
 	 * 
 	 * @param apiUri
 	 */
@@ -24,7 +24,7 @@ public class UDParser
 		this.apiUri = apiUri;
 	}
 	
-	public Definition[] getDefinitionsByKeyword(String JSONData)
+	public Definition[] getDefinitionsWithJSONData(String JSONData)
 	{
 		ArrayList<Definition> tmpArr = new ArrayList<Definition>();
 		
@@ -55,7 +55,7 @@ public class UDParser
 	 * @param JSONData
 	 * @return the result type for a keyword.
 	 */
-	public JSONArray getTagsByKeyword(String JSONData)
+	public JSONArray getTagsWithJSONData(String JSONData)
 	{
 		JSONObject obj = new JSONObject(JSONData);
 		JSONArray tags = obj.getJSONArray("tags");
@@ -90,7 +90,36 @@ public class UDParser
 		 try 
 		 {
 			 // if the word contains spaces, replace them with "+" in the GET.
-			 String url_base = apiUri + word;
+			 String url_base = apiUri + "define?term="+ word;
+			 URL jsonURL = new URL(url_base);
+			 URLConnection yc = jsonURL.openConnection();
+			 BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream(), "UTF-8"));
+			 String inputLine;
+			 String returnData = "";
+			 while ((inputLine = in.readLine()) != null)
+			 {
+				 returnData += inputLine;
+			 }
+			 return returnData;
+		 } 
+		 catch (Exception e)
+		 {
+			 return null;
+		 }
+	}
+	
+	/**
+	 * Return a String containing data in JSON format about a specified definition id.
+	 * 
+	 * @param id (the defid of the word)
+	 * @return a JSON-formatted String containing information on the word.
+	 */
+	public String getJSONData(int id)
+	{
+		try 
+		 {
+			 // if the word contains spaces, replace them with "+" in the GET.
+			 String url_base = apiUri + "define?defid="+ id;
 			 URL jsonURL = new URL(url_base);
 			 URLConnection yc = jsonURL.openConnection();
 			 BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream(), "UTF-8"));

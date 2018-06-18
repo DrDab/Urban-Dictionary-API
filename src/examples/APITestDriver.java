@@ -9,9 +9,10 @@ public class APITestDriver
 {
 	public static void main (String[] args)
 	{
-		UDParser udparser = new UDParser("http://api.urbandictionary.com/v0/define?term=");
-		String JSONData = udparser.getJSONData("minecraft");
-		Definition[] test = udparser.getDefinitionsByKeyword(JSONData);
+		UDParser udparser = new UDParser("http://api.urbandictionary.com/v0/");
+		// String JSONData = udparser.getJSONData("minecraft");
+		String JSONData = udparser.getJSONData(6730949);
+		Definition[] test = udparser.getDefinitionsWithJSONData(JSONData);
 		for(int i = 0; i < test.length; i++)
 		{
 			System.out.println("WORD");
@@ -22,10 +23,12 @@ public class APITestDriver
 			System.out.println(test[i].getAuthor());
 			System.out.println("WRITTEN DATE");
 			System.out.println(test[i].getWrittenDate());
+			System.out.println("REFERENCE ID");
+			System.out.println(test[i].getRefID());
 			System.out.println("PERMALINK");
 			System.out.println(test[i].getPermalink());
 		}
-		JSONArray keywordTags = udparser.getTagsByKeyword(JSONData);
+		JSONArray keywordTags = udparser.getTagsWithJSONData(JSONData);
 		System.out.println("TAGS");
 		for(int i = 0; i < keywordTags.length(); i++)
 		{
