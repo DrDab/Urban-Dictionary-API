@@ -7,6 +7,7 @@ public class Definition
 	private String example;
 	private String author;
 	private String writtenDate; 
+	private String permaLink;
 	
 	private int refID;
 	
@@ -20,18 +21,19 @@ public class Definition
 	 * @param example
 	 * @param author
 	 * @param writtenDate
-	 * @param tags
+	 * @param permaLink
 	 * @param refID
 	 * @param likes
 	 * @param dislikes
 	 */
-	public Definition(String wordName, String definition, String example, String author, String writtenDate, int refID, int likes, int dislikes)
+	public Definition(String wordName, String definition, String example, String author, String writtenDate, String permaLink, int refID, int likes, int dislikes)
 	{
 		this.wordName = wordName;
 		this.definition = definition;
 		this.example = example;
 		this.author = author;
 		this.writtenDate = writtenDate;
+		this.permaLink = permaLink;
 		this.refID = refID;
 		this.likes = likes;
 		this.dislikes = dislikes;
@@ -55,7 +57,7 @@ public class Definition
 	 */
 	public String getPermalink()
 	{
-		return "http://" + wordName + ".urbanup.com/" + refID;
+		return permaLink;
 	}
 	
 	public String getWordName()

@@ -40,10 +40,11 @@ public class UDParser
 			  String example = jsonobject.getString("example");
 			  String author = jsonobject.getString("author");
 			  String writtenDate = jsonobject.getString("written_on");
+			  String permaLink = jsonobject.getString("permalink");
 			  int likes = (jsonobject.getInt("thumbs_up"));
 			  int dislikes = (jsonobject.getInt("thumbs_down"));
 			  int refID = (jsonobject.getInt("defid"));
-			  tmpArr.add(new Definition(wordName, definition, example, author, writtenDate, refID, likes, dislikes));
+			  tmpArr.add(new Definition(wordName, definition, example, author, writtenDate, permaLink, refID, likes, dislikes));
 		}
 		
 		return tmpArr.toArray(new Definition[tmpArr.size()]);

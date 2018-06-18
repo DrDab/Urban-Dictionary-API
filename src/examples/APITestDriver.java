@@ -10,8 +10,9 @@ public class APITestDriver
 	public static void main (String[] args)
 	{
 		UDParser udparser = new UDParser("http://api.urbandictionary.com/v0/");
-		// String JSONData = udparser.getJSONData("minecraft");
-		String JSONData = udparser.getJSONData(6730949);
+		String JSONData = udparser.getJSONData("chris+hansen");
+		// String JSONData = udparser.getJSONData(6730949);
+		// System.out.println(JSONData);
 		Definition[] test = udparser.getDefinitionsWithJSONData(JSONData);
 		for(int i = 0; i < test.length; i++)
 		{
